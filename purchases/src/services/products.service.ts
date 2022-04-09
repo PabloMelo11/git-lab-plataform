@@ -14,6 +14,10 @@ export class ProductsService {
     return this.prisma.product.findMany();
   }
 
+  async getProductById(id: string) {
+    return this.prisma.product.findFirst({ where: { id } });
+  }
+
   async createProduct({ title }: CreateProductsParams) {
     const slug = slugify(title, { lower: true, trim: true });
 
