@@ -17,7 +17,7 @@ export class ProductsResolver {
   }
 
   @Mutation(() => Product)
-  // @UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard)
   createProduct(@Args('data') data: CreateProductInput) {
     return this.productsService.createProduct(data);
   }

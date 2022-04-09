@@ -16,9 +16,9 @@ import { ProductsService } from '../../../services/products.service';
 import { CustomersService } from '../../../services/customers.service';
 
 import { Purchase } from '../models/purchase';
-import { Product } from '../models/product';
 
 import { CreatePurchaseInput } from '../inputs/create-purchase-input';
+
 import { AuthUser, CurrentUser } from '../../auth/current-user';
 
 @Resolver(() => Purchase)
@@ -30,7 +30,7 @@ export class PurchasesResolver {
   ) {}
 
   @Query(() => [Purchase])
-  // @UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard)
   purchases() {
     return this.purchasesService.listAllPurchases();
   }
