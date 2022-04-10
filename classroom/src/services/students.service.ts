@@ -9,4 +9,10 @@ export class StudentsService {
   async listAllStudents() {
     return this.prisma.student.findMany();
   }
+
+  async getStudent(id: string) {
+    return this.prisma.student.findUnique({
+      where: { id },
+    });
+  }
 }
